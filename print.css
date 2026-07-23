@@ -1,0 +1,129 @@
+/* Print CSS - A4 Page Optimization */
+
+@page {
+    size: A4;
+    margin: 0;
+    padding: 0;
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        padding: 0;
+        background-color: white;
+    }
+
+    .page {
+        max-width: 210mm;
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 12mm;
+        box-shadow: none;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        display: block;
+    }
+
+    /* Prevent page breaks within important sections */
+    .section {
+        page-break-inside: avoid;
+    }
+
+    .experience-item {
+        page-break-inside: avoid;
+    }
+
+    .project-item {
+        page-break-inside: avoid;
+    }
+
+    .education-item {
+        page-break-inside: avoid;
+    }
+
+    .skill-category {
+        page-break-inside: avoid;
+    }
+
+    /* Hide scrollbars and unnecessary UI elements */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Ensure text colors are preserved - all links in black by default */
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    a:visited {
+        color: #000 !important;
+    }
+
+    /* LinkedIn links in blue */
+    a[href*="linkedin"] {
+        color: #2563EB !important;
+    }
+
+    a[href*="linkedin"]:visited {
+        color: #2563EB !important;
+    }
+
+    /* Company links - in blue */
+    a[href*="kairos"],
+    a[href*="zyrix"],
+    a[href*="vmmining"],
+    a[href*="vasantha"] {
+        color: #2563EB !important;
+    }
+
+    a[href*="kairos"]:visited,
+    a[href*="zyrix"]:visited,
+    a[href*="vmmining"]:visited,
+    a[href*="vasantha"]:visited {
+        color: #2563EB !important;
+    }
+
+    /* Remove background colors from links on print */
+    a:hover {
+        background-color: transparent;
+    }
+
+    a[href*="linkedin"]:hover {
+        color: #2563EB !important;
+    }
+
+    /* Ensure proper spacing for printing */
+    .divider {
+        page-break-after: avoid;
+    }
+
+    /* Optimize line heights for printing */
+    .achievement-list li {
+        page-break-inside: avoid;
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+/* Screen-specific adjustments */
+@media screen {
+    .page {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
